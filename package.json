@@ -1,5 +1,5 @@
 {
-  "name": "microfrontend-yarn-workspaces",
+  "name": "microfrontend-root-initializer",
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
