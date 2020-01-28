@@ -1,0 +1,21 @@
+{
+  "name": "microfrontend-yarn-workspaces",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "product",
+    "dashboard",
+    "account",
+    "threejs",
+    "excel"
+  ],
+  "scripts": {
+    "start": "node init.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "shelljs": "^0.8.3"
+  }
+}
