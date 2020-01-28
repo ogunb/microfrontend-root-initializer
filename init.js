@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const shell = require('shelljs');
 
+const packageJson = require('./package.json');
+const workspaces = packageJson.workspaces;
+
 const DOMAINS = {
     product: {
         local: '/product',
@@ -41,6 +44,11 @@ const DOMAINS = {
 }
 
 let selectedDomains = process.argv.slice(2);
+
+if (workspaces.indexOf(selectedDomains) === -1) {
+    throw new Error('You either misspelled something or forgot to add the domain to workspaces on package.json file.\nYour workspace name, domain key and local file name should be the same.')
+}
+
 if (!selectedDomains.length) selectedDomains = Object.keys(DOMAINS);
 
 selectedDomains.forEach(async domainName => {
