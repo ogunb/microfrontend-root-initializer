@@ -52,7 +52,7 @@ if (!selectedDomains.every(domain => workspaces.includes(domain))) {
 
 selectedDomains.forEach(async domainName => {
     const domain = DOMAINS[domainName];
-    if (fs.existsSync(path.join(__dirname, domain.local))) {
+    if (fs.existsSync(path.join(__dirname, `${domain.local}/package.json`))) {
         console.log(`🤖  - Found ${domainName} on local...`);
         return;
     }
