@@ -45,11 +45,10 @@ const DOMAINS = {
 
 let selectedDomains = process.argv.slice(2);
 
-if (workspaces.indexOf(selectedDomains) === -1) {
+if (!selectedDomains.length) selectedDomains = Object.keys(DOMAINS);
+if (!selectedDomains.every(domain => workspaces.includes(domain))) {
     throw new Error('You either misspelled something or forgot to add the domain to workspaces on package.json file.\nYour workspace name, domain key and local file name should be the same.')
 }
-
-if (!selectedDomains.length) selectedDomains = Object.keys(DOMAINS);
 
 selectedDomains.forEach(async domainName => {
     const domain = DOMAINS[domainName];
